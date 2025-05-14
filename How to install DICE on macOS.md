@@ -16,8 +16,6 @@ You can install these using Homebrew:
 brew install cmake gsl fftw
 ```
 
-
-
 Alternatively, to install GSL and FFTW locally (recommended for cluster environments):
 
 ```bash
@@ -25,8 +23,6 @@ cd ~
 mkdir local
 cd local
 ```
-
-
 
 Download and install GSL:
 
@@ -40,8 +36,6 @@ make install
 cd ..
 ```
 
-
-
 Download and install FFTW:
 
 ```bash
@@ -54,15 +48,11 @@ make install
 cd ..
 ```
 
-
-
 Add the local bin directory to your PATH by adding the following line to your `.profile`:
 
 ```bash
 export PATH=$HOME/local/bin:$PATH
 ```
-
-
 
 ---
 
@@ -71,8 +61,6 @@ export PATH=$HOME/local/bin:$PATH
 ```bash
 git clone https://bitbucket.org/vperret/dice
 ```
-
-
 
 ---
 
@@ -87,23 +75,17 @@ make
 make install
 ```
 
-
-
 By default, DICE is installed in `$HOME/local/dice`. To specify a different installation directory, use:
 
 ```bash
 cmake .. -DCMAKE_INSTALL_PREFIX=/desired/path
 ```
 
-
-
 If you installed GSL and FFTW in non-standard locations, specify their paths:
 
 ```bash
 cmake .. -DGSL_PATH=/path/to/gsl -DFFTW3_PATH=/path/to/fftw3 -DFFTW3_THREADS_PATH=/path/to/fftw3_threads
 ```
-
-
 
 To enable threading for performance improvements:
 
@@ -112,8 +94,6 @@ cmake .. -DENABLE_THREADS=ON
 make
 make install
 ```
-
-
 
 ---
 
@@ -125,8 +105,6 @@ Add the DICE binary directory to your PATH by adding the following line to your 
 export PATH=$HOME/local/bin:$PATH
 ```
 
-
-
 ---
 
 ### 5. Notes
@@ -137,8 +115,6 @@ export PATH=$HOME/local/bin:$PATH
   cmake --version
 ```
 
-
-
 * If you encounter errors related to `_intel_fast_memset_`, it may indicate that FFTW was compiled with the Intel compiler. In this case, you will need the Intel compiler to compile DICE.
 
 * For GCC 10 and newer, if you encounter multiple definition errors, add the `-fcommon` flag:
@@ -146,8 +122,6 @@ export PATH=$HOME/local/bin:$PATH
 ```bash
   cmake .. -DCMAKE_C_FLAGS="-fcommon"
 ```
-
-
 
 ---
 
