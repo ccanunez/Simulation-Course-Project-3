@@ -146,4 +146,66 @@ kill %1
 
 ---
 
-Would you like help writing a simple script (like `run.sh`) to automate these steps?
+# How do I stop the simulation?
+
+Good question! When you run `./gf &`, you're starting the program **in the background**, and it's still running—so if you try to `exit`, the terminal warns you because there are **background jobs still active**.
+
+Here’s how you can stop it properly:
+
+---
+
+### 🔍 Step 1: Check What’s Running
+
+Run:
+
+```bash
+jobs
+```
+
+This will show something like:
+
+```
+[1]+  Running                 ./gf &
+```
+
+---
+
+### ⛔ Step 2: Kill the Background Job
+
+To **bring the job to the foreground** and stop it:
+
+```bash
+fg %1
+```
+
+Then press `Ctrl+C` to terminate it.
+
+Alternatively, you can just kill it directly:
+
+```bash
+kill %1
+```
+
+Or, if it's not responding:
+
+```bash
+kill -9 %1
+```
+
+---
+
+### ✅ Step 3: Confirm It’s Stopped
+
+Run:
+
+```bash
+jobs
+```
+
+If you see nothing listed, the job is stopped, and it’s safe to `exit`.
+
+---
+
+Remember there are commands like `nohup` or `screen` so it survives even if you close the terminal.
+
+
